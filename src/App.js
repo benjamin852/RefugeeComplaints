@@ -4,19 +4,40 @@ import './App.css';
 import web3 from './web3';
 
 class App extends Component {
+
+  constructor(props) {
+    super(props);
+    this.state = {
+      value: '',
+    }
+    this.handleChange = this.handleChange.bind(this);
+  }
+
+
+  handleChange(event) {
+    this.setState({
+      value: event.target.value,
+    })
+  //  console.log(event.target.value);
+  }
   render() {
     return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to React</h1>
-        </header>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
+      <div>
+
+        <div>
+          Please enter your complaint:
+        </div>
+
+        <div>
+          <label>
+            Complaint:
+            <textarea value={this.state.value} onChange={this.handleChange} />
+          </label>
+            <input type="submit" value="Submit" />
+        </div>
+
       </div>
     );
   }
 }
-
 export default App;
