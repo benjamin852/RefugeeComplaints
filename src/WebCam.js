@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Webcam from 'react-webcam';
+import ComplainBox from './ComplainBox';
 import * as shutter from './shutter.mp3';
-import Sound from 'react-sound';
 
 export default class WebCam extends Component {
     constructor(props) {
@@ -78,7 +78,7 @@ export default class WebCam extends Component {
                 </div> : null }
               { this.state.screenshot ? <img src={this.state.screenshot} /> : null }
               { this.state.loading ? <div> loading.. </div> : null }
-              { this.state.screenshot && !this.state.loading ? <div>1BoatSLRHtKNngkdXEeobR76b53LETtpyT</div> : null }
+              { this.state.screenshot && !this.state.loading ? <ComplainBox /> : null }
             </div>
           )
       }

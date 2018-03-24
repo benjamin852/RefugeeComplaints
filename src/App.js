@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
 import WebCam from './WebCam';
+import ComplainBox from './ComplainBox';
 import web3 from './web3';
 
 class App extends Component {
