@@ -3,3 +3,18 @@ body {
   padding: 0;
   font-family: sans-serif;
 }
+table {
+  background-color: white;
+  text-align: left;
+}
+td {
+  height: 40px;
+}
+
+thead > td {
+  min-width: 100px;
+}
+thead > td:first-child ,
+tr > td:first-child {
+  text-align: center;
+}
