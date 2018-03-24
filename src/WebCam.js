@@ -18,7 +18,7 @@ export default class WebCam extends Component {
       setRef = (webcam) => {
         this.webcam = webcam;
       }
-    
+
       tickOne = () => {
         this.state.elaspedLoading--;
         this.setState({elaspedLoading: this.state.elaspedLoading-- });
@@ -29,7 +29,7 @@ export default class WebCam extends Component {
           })
         }
       }
-    
+
       tick = () => {
         this.state.elapsed--;
         this.setState({elapsed: this.state.elapsed-- });
@@ -44,7 +44,7 @@ export default class WebCam extends Component {
           this.timerOne = setInterval(this.tickOne, 50);
         }
       }
-     
+
       capture = () => {
         this.timer = setInterval(this.tick, 500);
       };
@@ -60,7 +60,7 @@ export default class WebCam extends Component {
                 <div style={{position: 'relative', backgroundColor: '#7AC687'}}>
                   <div>
                     <div> Smile!! </div>
-                    <Webcam 
+                    <Webcam
                       audio={false}
                       height={350}
                       ref={this.setRef}
