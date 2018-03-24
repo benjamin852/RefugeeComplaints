@@ -20,13 +20,23 @@ export default class ComplainBox extends Component {
     }
 
     _onSubmit() {
+
+
+      // web3.eth.getAccounts().then((accounts)=>{
+      //   var account = accounts[0];
+      //   // console.log(contract.methods.complaints('').send({from: account}));
+      // })
+
+
       web3.eth.getAccounts().then((accounts)=>{
         var account = accounts[0];
-        contract.methods.addComplaint('string','').send({from: account});
+        contract.methods.getMyComplaints().call().then((accounts) => {
+          console.log(accounts);
+        });
       })
     }
     render() {
-        return(
+        return (
                 <div>
                 <div>1BoatSLRHtKNngkdXEeobR76b53LETtpyT</div>
 

@@ -13,7 +13,6 @@ class App extends Component {
     this.handleChange = this.handleChange.bind(this);
   }
 
-
   handleChange(event) {
     this.setState({
       value: event.target.value,
@@ -31,7 +30,6 @@ class App extends Component {
                 marginBottom: '49px'
               }}> </div>
           <WebCam />
-          <button> </button>
         </div>
       </div>
     );
