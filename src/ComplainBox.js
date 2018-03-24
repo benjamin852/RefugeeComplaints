@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import contract, { web3} from './contract';
+
 
 export default class ComplainBox extends Component {
     constructor(props) {
@@ -8,16 +10,33 @@ export default class ComplainBox extends Component {
         }
         this.handleChange = this.handleChange.bind(this);
     }
-        
-        
+
+
     handleChange(event) {
         this.setState({
             value: event.target.value,
         })
         //  console.log(event.target.value);
     }
+
+    _onSubmit() {
+
+
+      // web3.eth.getAccounts().then((accounts)=>{
+      //   var account = accounts[0];
+      //   // console.log(contract.methods.complaints('').send({from: account}));
+      // })
+
+
+      web3.eth.getAccounts().then((accounts)=>{
+        var account = accounts[0];
+        contract.methods.getMyComplaints().call().then((accounts) => {
+          console.log(accounts);
+        });
+      })
+    }
     render() {
-        return(
+        return (
                 <div>
                 <div>1BoatSLRHtKNngkdXEeobR76b53LETtpyT</div>
 
@@ -32,7 +51,7 @@ export default class ComplainBox extends Component {
                     <br />
                     <textarea row={3} style={{ width: '250px', height: '100px'}} value={this.state.value} onChange={this.handleChange} />
                     <br />
-                    <input type="submit" value="Submit" />
+                    <input type="submit" value="Submit" onClick={this._onSubmit}/>
                 </div>
                 </div>
         )

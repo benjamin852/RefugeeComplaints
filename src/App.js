@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import Header from './Header';
 import Main from './Main';
 import './App.css';
-import web3 from './web3';
+import WebCam from './WebCam';
 
 class App extends Component {
   constructor(props) {
@@ -12,7 +12,6 @@ class App extends Component {
     }
     this.handleChange = this.handleChange.bind(this);
   }
-
 
   handleChange(event) {
     this.setState({
