@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import Webcam from 'react-webcam';
+import * as shutter from './shutter.mp3';
+import Sound from 'react-sound';
 
 export default class WebCam extends Component {
     constructor(props) {
@@ -8,6 +10,7 @@ export default class WebCam extends Component {
           elapsed: 3,
           elaspedLoading: 30,
         }
+        this.tick = this.tick.bind(this);
       }
       componentWillUnmount = () => {
         clearInterval(this.timer);
@@ -34,6 +37,7 @@ export default class WebCam extends Component {
           clearInterval(this.timer);
           const screenshot = this.webcam.getScreenshot();
           this.setState({ screenshot });
+          this.audio.play();
           this.setState({
             loading: true,
           })
@@ -48,8 +52,12 @@ export default class WebCam extends Component {
       render() {
           return (
             <div>
+            <audio ref={(audio) => { this.audio = audio; }}>
+              <source src={shutter} type="audio/mpeg" >
+              </source>
+            </audio>
               { !this.state.screenshot ?
-                <div style={{position: 'relative'}}>
+                <div style={{position: 'relative', backgroundColor: '#7AC687'}}>
                   <div>
                     <div> Smile!! </div>
                     <Webcam 

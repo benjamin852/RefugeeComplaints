@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import './App.css';
 import WebCam from './WebCam';
 import web3 from './web3';
@@ -9,6 +8,12 @@ class App extends Component {
     return (
       <div className="App">
         <div style={{margin: 'auto'}}>
+          <div style={{ 
+                height: '140px',
+                backgroundColor: '#41AD57',
+                border: '1px solid white',
+                marginBottom: '49px'
+              }}> </div>
           <WebCam />
         </div>
       </div>
